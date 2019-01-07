@@ -1,0 +1,89 @@
+@mixin setFont($nm, $fileNm, $weight:normal){
+    @font-face {
+        font-family: $nm;
+        font-weight: $weight;
+        font-display: block;
+        src: local("※"), url($font_url + $fileNm + ".woff2") format('woff2'),
+             local("※"), url($font_url + $fileNm + ".woff") format("woff");
+    }
+}
+@mixin fontfamily($weight:normal){
+  font:{
+    family: $family;
+    weight: $weight;
+  }
+}
+@mixin bg($fileNm:null, $repeat:no-repeat, $bgPos:0 0, $bgSize:null, $bgColor:null){
+	background:$bgColor url($url + $fileNm) $repeat $bgPos;
+	@if $bgSize != null {
+		background-size:$bgSize;
+	}
+}
+@mixin gradient($pos, $to, $from, $deg:null) {
+    background-color: $to;
+    @if $pos == null {
+        background:linear-gradient($deg, $to, $from);
+        background:-webkit-linear-gradient($deg, $to, $from);
+        background:-o-linear-gradient( $deg, $to, $from);
+    }@else{
+        background:linear-gradient(to $pos, $to, $from);
+        background:-webkit-linear-gradient(to $pos, $to, $from);
+        background:-o-linear-gradient(to $pos, $to, $from);
+    }
+	@if $pos == bottom {
+        background:linear-gradient(top, $to, $from);
+		background:-webkit-linear-gradient(top, $to, $from);
+		background:-o-linear-gradient(top, $to, $from);
+	} @else if $pos == right {
+        background:linear-gradient(left, $to, $from);
+		background:-webkit-linear-gradient(left, $to, $from);
+		background:-o-linear-gradient(left, $to, $from);
+	}
+}
+@mixin clear($display:block){
+	display: $display;
+	clear: both;
+	content: "";
+}
+@mixin blind_txt {
+	text-indent:-2000em;
+	font-size:1px;
+	overflow:hidden;
+}
+@mixin ellipsis($type:null,$num:2) {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    @if $type == multi {
+        white-space: normal;
+        word-wrap: break-word;
+        display:-webkit-box;
+        -webkit-line-clamp:$num;
+        -webkit-box-orient:vertical;
+    }@else{
+        white-space:nowrap;
+    }
+}
+@mixin set_wrap($max-size, $margin:0 auto, $position:relative) {
+    width:100%;
+    max-width:$max-size;
+    margin: $margin;
+    position:$position;
+    @include clear;
+}
+@mixin set_content($width:auto, $height:auto, $color:null, $display:inline-block, $position:relative) {
+    content:"";
+    width:$width;
+    height:$height;
+    display:$display;
+    position:$position;
+    @if $color != null {
+        background:$color;
+    }
+}
+@mixin respond-to($media) {
+	@if $media == tablet {
+		@media (max-width:$pc_size) { @content; }
+	}@else if $media == mobile {
+		@media (max-width:$tablet_size) { @content; }
+	}
+}
