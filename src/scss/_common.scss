@@ -168,8 +168,10 @@ section{
   top:0;
   left:0;
   .pop{
-    @include set_content(800px, 500px, $white, block, absolute);
-    padding:50px;
+    @include set_content(900px, 100%, $white, block, absolute);
+    max-height: 650px;
+    overflow-y: auto;
+    padding:70px 100px;
     border: 5px solid $black;
     top:50%;
     left:50%;
@@ -180,17 +182,39 @@ section{
       font-size: 24px;
     }
     p{
-      font-size: 16px;
       color:#777777;
     }
-    dl{
-      margin-top: 20px;
+    .site{
+      width: 100%;
+      margin: 25px 0 50px;
     }
-    dt,dd{
-      display: inline-block;
+    a{
+      color:#3c8fd3;
+      text-decoration: underline;
     }
-    dd:after{
-      @include clear;
+    li{
+      margin-bottom: 10px;
+    }
+  }
+  .btn_close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border:1px solid $black;
+    top:40px;
+    right:40px;
+    @include blind_txt;
+    &:before{
+      @include set_content(2px, 20px, $black, block, absolute);
+      transform: translate(-50%, -50%) rotate(45deg);
+      top:50%;
+      left:50%;
+    }
+    &:after{
+      @include set_content(2px, 20px, $black, block, absolute);
+      transform: translate(-50%, -50%) rotate(135deg);
+      top:50%;
+      left:50%;
     }
   }
 }
