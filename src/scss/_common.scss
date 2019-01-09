@@ -1,10 +1,22 @@
 h2{
   margin-bottom: 50px;
-  color:$point;
   line-height: 1;
   font-size:3.59rem;
 }
-.main{
+.btn{
+  min-width: 300px;
+  padding:25px 30px;
+  border:2px solid $point;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  color: #e7b200;
+  margin-top:75px;
+  font-size: 1.42rem;
+  line-height: 1;
+  box-sizing: border-box;
+}
+#main{
   display:block;
   position:relative;
   height: 100vh; /*1vh == view port 1%*/
@@ -25,7 +37,7 @@ section{
   padding: 130px 0 100px;
   text-align:center;
 }
-.about{
+#about{
   background: #fafafa;
   padding: 0;
   overflow: hidden;
@@ -39,15 +51,6 @@ section{
     color: #646464;
     span{
       display: block;
-    }
-    .btn{
-      padding:10px 30px;
-      border:2px solid $point;
-      border-radius: 8px;
-      display: inline-block;
-      font-weight: bold;
-      color: #e7b200;
-      margin-top:75px;
     }
   }
   .skill{
@@ -68,7 +71,30 @@ section{
       }
   }
 }
-.port{
+#contact{
+  padding:70px 0;
+  background: $point;
+  h2{
+    color:$white;
+    margin-bottom: 20px;
+  }
+  a.btn{
+    margin-top: 30px;
+    display: inline-block;
+    text-decoration: underline;
+    color : $white;
+    border-color: $white;
+    .img{
+     vertical-align: middle;
+      margin-right: 15px;
+    }
+  }
+  span{
+    display: block;
+    color:$white;
+  }
+}
+#port{
   h2{
     color:$black;
     margin-bottom: 70px;
@@ -164,14 +190,15 @@ section{
   z-index: 10;
   padding:0;
   margin:0;
-  @include set_content(100%,100%,rgba(0,0,0, 0.5), block, fixed);
+  @include set_content(100%,100%,$black, none, fixed);
   top:0;
   left:0;
   .pop{
-    @include set_content(900px, 100%, $white, block, absolute);
+    @include set_content(100%, 100%, $white, none, absolute);
+    max-width: 900px;
     max-height: 650px;
-    overflow-y: auto;
-    padding:70px 100px;
+    overflow: auto;
+    padding:70px 0;
     border: 5px solid $black;
     top:50%;
     left:50%;
@@ -179,13 +206,28 @@ section{
     box-sizing: border-box;
     font-size: 15px;
     h3{
+      margin-bottom: 10px;
       font-size: 24px;
+      position: relative;
+      display: inline-block;
+      &:before{
+        @include set_content(100%, 2px, $point, block, absolute);
+        bottom:0;
+        left:0;
+      }
+    }
+    .cont{
+      width: 870px;
+      margin: 0 auto;
+      padding: 0 100px;
+      box-sizing: border-box;
+      position:relative;
     }
     p{
       color:#777777;
     }
     .site{
-      width: 100%;
+      width: 670px;
       margin: 25px 0 50px;
     }
     a{
@@ -201,7 +243,7 @@ section{
     width: 30px;
     height: 30px;
     border:1px solid $black;
-    top:40px;
+    top:-20px;
     right:40px;
     @include blind_txt;
     &:before{
