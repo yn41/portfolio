@@ -10,24 +10,33 @@ var gulp = require('gulp'),
 var paths = {
     port:'3000',
     input:'./src/**/*',
-    output:'./dist/',
+    output:'./public/',
     html: {
         input: './src/**/*.html',
-        output: './dist/'
+        output: './public/'
     },
+	img:{
+		input:'./src/img/*',
+		output:'./public/img'
+	},
+	font:{
+		input:'./src/font/*',
+		output:'./public/font'
+	},
     style:{
         input:'./src/scss/*.scss',
-        output:'./dist/css'
+        output:'./public/css'
     },
     js: {
         input : './src/js/*.js',
-        output : './dist/js/'
+        output : './public/js/'
     }
 };
 
 //browser-sync
 gulp.task('browserSync', function () {
     console.log("gulp 시작!!");
+
     return browserSync.init({
         port:paths.port,
         server:{
@@ -71,19 +80,26 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js',function(){
-    gulp.src(paths.js.input)
-        .pipe(gulp.dest(paths.js.output))
-        .pipe(uglify())
-        .pipe(gulp.dest(paths.js.output+'/min'))
-        .pipe(browserSync.reload({
-            stream:true
-        }));
+	gulp.src(paths.js.input)
+		.pipe(gulp.dest(paths.js.output))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.js.output+'/min'))
+		.pipe(browserSync.reload({
+			stream:true
+		}));
+});
+
+gulp.task('copy',function(){
+	gulp.src(paths.font.input)
+		.pipe(gulp.dest(paths.font.output));
+	gulp.src(paths.img.input)
+		.pipe(gulp.dest(paths.img.output));
 });
 
 gulp.task('watch', ['html-include','sass','js'], function() {
     gulp.watch(paths.style.input, ['sass']);
     gulp.watch(paths.html.input, ['html-include']);
-    gulp.watch(paths.js.input, ['js']);
+	gulp.watch(paths.js.input, ['js']);
 });
 
-gulp.task('default',['browserSync','watch']);
+gulp.task('default',['browserSync','watch', "copy"]);
