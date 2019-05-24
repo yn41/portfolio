@@ -1,0 +1,11 @@
+/dist
+/node_modules
+/src/config.rb
+*/css
+/old_html
+/.history
+*.iml
+*.xml
+/.idea
+*/.idea
+workspace.xml
