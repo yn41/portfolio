@@ -17,7 +17,7 @@ var paths = {
         output: './docs/'
     },
 	img:{
-		input:'./src/img/*',
+		input:'./src/img/**/*',
 		output:'./docs/img'
 	},
 	font:{

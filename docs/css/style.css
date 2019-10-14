@@ -1,19 +1,17 @@
 @charset "UTF-8";
-/*$url : "/img/";
-$font_url : "/font/";*/
 /* header pc height */
 @font-face {
   font-family: "NotoSans";
   font-weight: normal;
   font-display: block;
-  src: local("※"), url("//yn8206.dothome.co.kr/font/NotoSansLight.woff2") format("woff2"), local("※"), url("//yn8206.dothome.co.kr/font/NotoSansLight.woff") format("woff");
+  src: local("※"), url("../font/NotoSansLight.woff2") format("woff2"), local("※"), url("../font/NotoSansLight.woff") format("woff");
 }
 
 @font-face {
   font-family: "NotoSans";
   font-weight: bold;
   font-display: block;
-  src: local("※"), url("//yn8206.dothome.co.kr/font/NotoSansMedium.woff2") format("woff2"), local("※"), url("//yn8206.dothome.co.kr/font/NotoSansMedium.woff") format("woff");
+  src: local("※"), url("../font/NotoSansMedium.woff2") format("woff2"), local("※"), url("../font/NotoSansMedium.woff") format("woff");
 }
 
 html, body {
@@ -245,7 +243,7 @@ h2 {
   margin: 0px auto;
   overflow: hidden;
   text-align: center;
-  background: url("//yn8206.dothome.co.kr/img/img_main.jpg") no-repeat 48% 300px;
+  background: url("../img/img_main.jpg") no-repeat 48% 300px;
 }
 
 #main h1 {
@@ -425,27 +423,27 @@ section {
 }
 
 #port .bx.bg1 {
-  background: url("//yn8206.dothome.co.kr/img/bg_good1.svg") no-repeat 50%;
+  background: url("../img/bg_good1.svg") no-repeat 50%;
   background-size: 101%;
 }
 
 #port .bx.bg2 {
-  background: url("//yn8206.dothome.co.kr/img/bg_good2.svg") no-repeat 50%;
+  background: url("../img/bg_good2.svg") no-repeat 50%;
   background-size: 101%;
 }
 
 #port .bx.bg3 {
-  background: url("//yn8206.dothome.co.kr/img/bg_good3.svg") no-repeat 50%;
+  background: url("../img/bg_good3.svg") no-repeat 50%;
   background-size: 101%;
 }
 
 #port .bx.bg4 {
-  background: url("//yn8206.dothome.co.kr/img/bg_good4.svg") no-repeat 50%;
+  background: url("../img/bg_good4.svg") no-repeat 50%;
   background-size: 101%;
 }
 
 #port .bx.bg5 {
-  background: url("//yn8206.dothome.co.kr/img/bg_good5.svg") no-repeat 50%;
+  background: url("../img/bg_good5.svg") no-repeat 50%;
   background-size: 101%;
 }
 
