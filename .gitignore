@@ -1,7 +1,7 @@
-
+/disk
+/disk/css
 /node_modules
 /src/config.rb
-*/css
 /old_html
 /.history
 *.iml
